@@ -14,36 +14,36 @@ import javax.persistence.Table;
 public class Leave {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
-	@Column(name="empid",nullable = false, unique = true)
-	private Long empid;
+	@Column(name="empid")
+	private int empid;
 	
-	@Column(name="email",nullable = false, unique = true, length = 40)
+	@Column(name="email")
 	private String email;
 	
-	@Column(name="start_date",nullable = false)
+	@Column(name="start_date")
 	private String startDate;
 	
-	@Column(name="end_date",nullable = false)
+	@Column(name="end_date")
 	private String endDate;
 	
 	@Column(name="count")
-	private Integer count;
+	private int count;
 	
-	@Column(name="reason",nullable = false)
+	@Column(name="reason")
 	private String reason;
 	
 	@Column(name="status")
 	private String status;
 
 	
-	public Leave() {
+	public Leave() 
+	{
 		super();
 	}
 
-	public Leave(Long id, Long empid, String email, String startDate, String endDate, Integer count, String reason,
+	public Leave(int id, int empid, String email, String startDate, String endDate, int count, String reason,
 			String status) {
 		super();
 		this.id = id;
@@ -56,19 +56,19 @@ public class Leave {
 		this.status = status;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public Long getEmpid() {
+	public int getEmpid() {
 		return empid;
 	}
 
-	public void setEmpid(Long empid) {
+	public void setEmpid(int empid) {
 		this.empid = empid;
 	}
 
@@ -96,11 +96,11 @@ public class Leave {
 		this.endDate = endDate;
 	}
 
-	public Integer getCount() {
+	public int getCount() {
 		return count;
 	}
 
-	public void setCount(Integer count) {
+	public void setCount(int count) {
 		this.count = count;
 	}
 

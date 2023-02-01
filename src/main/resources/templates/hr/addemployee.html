@@ -5,19 +5,36 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<div class="container">
 <h2>Add Employee details</h2>
-<form th:action="@{/hr/addEmployee}" method="POST" >
-<input type="hidden" th:value="${id}" name="id">
-<input type="hidden" th:value="${username}" name="username">
-<input type="hidden" th:value="${password}" name="password">
-<input type="hidden" th:value="${role}" name="role">
-<input type="hidden" th:value="${firstName}" name="firstName">
-<input type="hidden" th:value="${lastName}" name="lastName">
-<input type="hidden" th:value="${email}" name="email">
-<input type="hidden" th:value="${address}" name="address">
-<input type="hidden" th:value="${contact}" name="contact">
-<button type="submit" class="waves-effect waves-light btn">Add
-			Employee</button>
+<form th:action="@{/hr/saveEmployee}" th:object="${user}" method="POST" >
+ <input type="text" th:field="*{username}"
+               placeholder="username" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{password}"
+               placeholder="password" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{role}"
+               placeholder="role" class="form-control mb-4 col-4">              
+ <input type="text" th:field="*{firstName}"
+               placeholder="Employee First Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{lastName}"
+               placeholder="Employee Last Name" class="form-control mb-4 col-4">
+               
+<input type="date" th:field="*{dob}" placeholder="date" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{email}"
+               placeholder="Employee Email" class="form-control mb-4 col-4">
+            <input type="text" th:field="*{address}"
+               placeholder="Employee address" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{contact}"
+               placeholder="Employee contact" class="form-control mb-4 col-4">
+
+  
+        <button type="submit" class="btn btn-info col-2"> Save Employee</button>
 </form>
+</div>
 </body>
 </html>

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.model.Leave;
 
-public interface LeaveRepositry extends JpaRepository<Leave, Long> {
-	public List<Leave> findAllByEmpid(Long empid);
+public interface LeaveRepositry extends JpaRepository<Leave, Integer> {
+	public List<Leave> findAllByEmpid(Integer empid);
 	public Leave findAllById(Integer id);
 }

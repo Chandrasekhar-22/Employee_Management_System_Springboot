@@ -1,19 +1,43 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Employee Profile</title>
-  </head>
-  <body>
-    <div th:if="${employee}" class="container">
-      <h1>Employee Profile</h1>
-      <p>First Name: <span th:text="${employee.firstName}"></span></p>
-      <p>Last Name: <span th:text="${employee.lastName}"></span></p>
-      <p>Address: <span th:text="${employee.address}"></span></p>
-      <p>Contact: <span th:text="${employee.contact}"></span></p>
-      <p>Email: <span th:text="${employee.email}"></span></p>
-    </div>
-  </body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employee Profile</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body style="max-width: 960px; margin: 16px auto; padding: 16px">
+
+	<div align="center" style="margin-top: 20px">
+		<table class="responsive-table striped highlight centered">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>DOB</th>
+					<th>address</th>
+					<th>contact</th>
+					
+					<th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="employee: ${emplist}">
+					<td th:text="${employee.firstName}"></td>
+					<td th:text="${employee.lastName}"></td>
+					<td th:text="${employee.email}"></td>
+					<td th:text="${employee.dob}"></td>
+					<td th:text="${employee.address}"></td>
+					<td th:text="${employee.contact}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
 </html>
