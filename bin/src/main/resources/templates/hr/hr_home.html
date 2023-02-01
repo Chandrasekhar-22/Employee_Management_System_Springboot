@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2> Add Employee</h2>
+<h2 style="color:orangered">Add Multiple Employees</h2>
+     <form id="uploadFile" name="uploadFile" method="post" th:action=@{/hr/upload} encType="multipart/form-data">
+       <input type="file" name="file" />
+       <br><br><button type="submit">Submit</button>
+     </form>
+<h2>Employees List</h2>
+</body>
+</html>

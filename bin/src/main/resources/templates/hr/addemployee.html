@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="add employees" name="Add Employees" action="@{/add employee}">
+			<input type="hidden" th:value="${username}" name="name">
+			<input type="hidden" th:value="${email}" name="email">
+			<input type="text" name="firstName" placeholder="First Name" required>
+			<input type="text" name="suranme" placeholder="Surname" required>
+			<input type="text" name="age" placeholder="Age" required>
+			<input type="text" name="year" placeholder="Year" required> 
+			<input type="submit">
+
+</form>
+</body>
+</html>

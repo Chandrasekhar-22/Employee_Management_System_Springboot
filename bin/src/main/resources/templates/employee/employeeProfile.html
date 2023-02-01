@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Employee Profile</title>
+  </head>
+  <body>
+    <div th:if="${employee}" class="container">
+      <h1>Employee Profile</h1>
+      <p>First Name: <span th:text="${employee.firstName}"></span></p>
+      <p>Last Name: <span th:text="${employee.lastName}"></span></p>
+      <p>Address: <span th:text="${employee.address}"></span></p>
+      <p>Contact: <span th:text="${employee.contact}"></span></p>
+      <p>Email: <span th:text="${employee.email}"></span></p>
+    </div>
+  </body>
+</html>

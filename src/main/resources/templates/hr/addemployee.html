@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Add Employee details</h2>
+<form th:action="@{/hr/addEmployee}" method="POST" >
+<input type="hidden" th:value="${id}" name="id">
+<input type="hidden" th:value="${username}" name="username">
+<input type="hidden" th:value="${password}" name="password">
+<input type="hidden" th:value="${role}" name="role">
+<input type="hidden" th:value="${firstName}" name="firstName">
+<input type="hidden" th:value="${lastName}" name="lastName">
+<input type="hidden" th:value="${email}" name="email">
+<input type="hidden" th:value="${address}" name="address">
+<input type="hidden" th:value="${contact}" name="contact">
+<button type="submit" class="waves-effect waves-light btn">Add
+			Employee</button>
+</form>
+</body>
+</html>
