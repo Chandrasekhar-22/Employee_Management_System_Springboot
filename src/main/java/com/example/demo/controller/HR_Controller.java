@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.model.Project_Allocation;
 import com.example.demo.model.User;
+import com.example.demo.repository.Project_AllocationRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 
@@ -22,7 +25,10 @@ public class HR_Controller {
     private UserRepository userRepo;
     @Autowired
     private UserService userService;
-   @GetMapping("/")
+    @Autowired
+    private Project_AllocationRepository projectRepo;
+    
+    @GetMapping("/")
    public String viewHomePage() {
        return "Home";
    }
@@ -50,7 +56,7 @@ public class HR_Controller {
   @PostMapping("/hr/saveEmployee")
   public String saveEmployee(@ModelAttribute("user") User user){
 	  userRepo.save(user);
-      return "redirect:/";
+      return "redirect:/hr/listofusers";
   }
 		 
   
@@ -61,16 +67,41 @@ public class HR_Controller {
 		return "hr/viewemployeelist";
 	}
 
-  @GetMapping("/hr/deleteEmployee/{id}")
-  public String deleteEmployee(@PathVariable (value= "id") int id){
+  
+  @GetMapping("/hr/MyProfile")
+  public String viewProfile()
+  {
+  	return "hr/HRProfile";
+  }
+  
+  @GetMapping("/hr/deleteEmployee")
+  public String deleteEmployee(@RequestParam Integer id){
 	  
       userService.deleteEmployeeById(id);
-      return "redirect:/";
+      return "redirect:/hr/listofusers";
+  }
+  @GetMapping("/hr/projectallocation")
+  public String projectallocation(Model model)
+  {
+	  Project_Allocation alloc=new Project_Allocation();
+	  model.addAttribute("alloc",alloc);
+	  return "hr/projectAllocation";
+  }
+
+  @PostMapping("/hr/saveallocation")
+  public String saveAllocation(@ModelAttribute("alloc")Project_Allocation alloc)
+  {
+	  projectRepo.save(alloc);
+	  return "redirect:/hr/viewProjectDetails";
   }
  
-
- 
-
+@GetMapping("/hr/viewProjectDetails")
+public String viewProjectDetails(Model model)
+{
+	List<Project_Allocation> prolist=projectRepo.findAll();
+	model.addAttribute("prolist",prolist);
+	return "hr/viewprojectinfo";
+}
 //@PreAuthorize("hasRole('HR')")
 
  

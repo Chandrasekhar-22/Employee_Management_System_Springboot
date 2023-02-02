@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -67,4 +68,19 @@ public class MyUserDetails implements UserDetails{
 		return true;
 	}
 
+	    public String getFirstName() {
+	    	return user.getFirstName();    }
+	    public String getLastName() {
+	    	return user.getLastName();    }
+	    public int getId() {
+	    	return user.getId();    }
+	    public String getAddress() {
+	    	return user.getAddress();    }
+	    public String getContact() {
+	    	return user.getContact();    }
+	    public Date getDob() {
+			return user.getDob();
+		}
+	    public String getEmail() {
+	    	return user.getEmail();    }
 }

@@ -22,7 +22,6 @@ public class HR_Security_Config extends WebSecurityConfigurerAdapter {
 	
     @Autowired
     UserDetailsService userDetailsService;
-    @Bean
     public UserDetailsService userDetailsService() {
         return new MyUserDetailsService();
     }
@@ -43,9 +42,10 @@ public class HR_Security_Config extends WebSecurityConfigurerAdapter {
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	http.authenticationProvider(authenticationProvider1());
         http.authorizeRequests().antMatchers("/").permitAll();
         http.antMatcher("/hr/**")
-        .authorizeRequests().anyRequest().authenticated()
+        .authorizeRequests().anyRequest().hasAuthority("HR")
         .and()
         .formLogin()
             .loginPage("/hr/login")

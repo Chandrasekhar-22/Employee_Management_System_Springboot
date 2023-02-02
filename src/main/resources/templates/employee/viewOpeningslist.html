@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title> Employee profile</title>
+<title>View Project Openings List</title>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -19,7 +19,7 @@
 	<header>
 
 		<div class="logosec">
-			<div class="logo"> My Profile </div>
+			<div class="logo">Project Openings List</div>
 			
 		</div>
 
@@ -33,43 +33,35 @@
                              </form>
 		 
 		</div>                   
+
 	</header>
-	<div class="main";>
-<div class="container" align="center" style="margin-top: 50px">
-	
-	
-		<table class="responsive-table striped highlight centered">
-			<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>DOB</th>
-					<th>address</th>
-					<th>contact</th>
-					
-					<th>
-				</tr>
-			</thead>
 
-			<tbody>
-		<div class="container">
-	<td>[[${#request.userPrincipal.principal.firstName}]]</td>
-	<td>[[${#request.userPrincipal.principal.lastName}]]</td>
-    <td>[[${#request.userPrincipal.principal.email}]]</td>
-    <td>[[${#request.userPrincipal.principal.Dob}]]</td>
-    <td>[[${#request.userPrincipal.principal.address}]]</td>
-    <td>[[${#request.userPrincipal.principal.contact}]]</td>
-	
-	</div>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	</div>
-	</div>
-
-
+	<div class="main">
+					<div align="center" style="margin-top: 50px">
+						<table style="width:100%">
+							<thead>
+								<tr>
+									<th>EmpId</th>
+									<th>Description</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+				
+							<tbody>
+							<!-- You can access model attributes which are added in a Controller(EmployeeController.java) with ${attributeName}.
+								 In this case, it is "${listEmployees}".
+								 To show all employees data in this table, you need to use "th:each" in the thymeleaf template and iterate the employee of listEmployees -->
+								<tr th:each="projectlist: ${projlist}">
+									<td th:text="${projectlist.empid}"></td>
+									<td th:text="${projectlist.description}"></td>
+									<td th:text="${projectlist.date}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</nav>
+		</div>
 	
 
 			
@@ -123,31 +115,6 @@ input[type=submit]{
   input[type=submit]:active {
     opacity: 0.7;
   }
-  
-
-  .button{
-    background-color: white;
-    border-color: rgb(41, 118, 211);
-    border-style: solid;
-    border-width: 1px;
-    color:(41, 118, 211);
-    height: 26px;
-    width: 150px;
-    border-radius: 2px;
-    cursor: pointer;
-	transition: background-color 0.15s,
-      color 0.15s;
-  }
-
-  .button:hover {
-    background-color: rgb(41, 118, 211);
-    color: white;
-  }
-
-  .button:active {
-    opacity: 0.7;
-  }
-  
 
 header {
 height: 70px;

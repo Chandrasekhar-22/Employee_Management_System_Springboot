@@ -1,40 +1,183 @@
 <!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Add Employee</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
+
 <body>
 
-<div class="container">
-<h2>Add Employee details</h2>
-<form th:action="@{/hr/saveEmployee}" th:object="${user}" method="POST" >
- <input type="text" th:field="*{username}"
-               placeholder="username" class="form-control mb-4 col-4">
+	<!-- for header part -->
+	<header>
 
-        <input type="text" th:field="*{password}"
-               placeholder="password" class="form-control mb-4 col-4">
+		<div class="logosec">
+			<div class="logo"> Add Employee</div>
+			
+		</div>
 
-        <input type="text" th:field="*{role}"
-               placeholder="role" class="form-control mb-4 col-4">              
- <input type="text" th:field="*{firstName}"
-               placeholder="Employee First Name" class="form-control mb-4 col-4">
+		<div class="message">
+			
+			
+		</div>
+		
+		 <form th:action="@{/hr/logout}" method="post">
+                           <input type="submit" value="Logout" />
+                             </form>
+		 
+		</div>                   
 
-        <input type="text" th:field="*{lastName}"
-               placeholder="Employee Last Name" class="form-control mb-4 col-4">
-               
-<input type="date" th:field="*{dob}" placeholder="date" class="form-control mb-4 col-4">
-        <input type="text" th:field="*{email}"
-               placeholder="Employee Email" class="form-control mb-4 col-4">
-            <input type="text" th:field="*{address}"
-               placeholder="Employee address" class="form-control mb-4 col-4">
+	</header>
+	<div class="main";>
+<div class="container" style="margin-top: 50px">
+	<form th:action="@{/hr/saveEmployee}" th:object="${user}" method="POST" >
+	 <input type="text" th:field="*{username}"
+				   placeholder="username" class="form-control mb-4 col-4">
+	
+			<input type="text" th:field="*{password}"
+				   placeholder="password" class="form-control mb-4 col-4">
+	
+			<input type="text" th:field="*{role}"
+				   placeholder="role" class="form-control mb-4 col-4">              
+	 <input type="text" th:field="*{firstName}"
+				   placeholder="Employee First Name" class="form-control mb-4 col-4">
+	
+			<input type="text" th:field="*{lastName}"
+				   placeholder="Employee Last Name" class="form-control mb-4 col-4">
+				   
+	<input type="date" th:field="*{dob}" placeholder="date" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{email}"
+				   placeholder="Employee Email" class="form-control mb-4 col-4">
+				<input type="text" th:field="*{address}"
+				   placeholder="Employee address" class="form-control mb-4 col-4">
+	
+			<input type="text" th:field="*{contact}"
+				   placeholder="Employee contact" class="form-control mb-4 col-4">
+	
+	  
+			<button type="submit" class="button"> Save Employee</button>
+	</form>
+	</div>
+	</div>
 
-        <input type="text" th:field="*{contact}"
-               placeholder="Employee contact" class="form-control mb-4 col-4">
 
+	
+
+			
+	<style>
+/* Main CSS Here */
+
+@import url(
+"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+:root {
+--background-color1: rgb(255, 255, 255);
+--background-color2: #ffffff;
+--background-color3: rgb(255, 255, 255);
+--background-color4:rgb(255, 255, 255);
+--primary-color: rgb(0, 0, 0);
+--secondary-color: rgb(0, 0, 0);
+--Border-color: rgb(0, 0, 0);
+--one-use-color: rgb(0, 0, 0);
+--two-use-color: rgb(0, 0, 0);
+}
+body {
+background-color: var(--background-color4);
+max-width: 100%;
+
+}
+input[type=submit]{
+    background-color: white;
+    border-color: rgb(41, 118, 211);
+    border-style: solid;
+    border-width: 1px;
+    color:(41, 118, 211);
+    height: 36px;
+    width: 62px;
+    border-radius: 2px;
+    cursor: pointer;
+	transition: background-color 0.15s,
+      color 0.15s;
+  }
+
+  input[type=submit]:hover {
+    background-color: rgb(41, 118, 211);
+    color: white;
+  }
+
+  input[type=submit]:active {
+    opacity: 0.7;
+  }
   
-        <button type="submit" class="btn btn-info col-2"> Save Employee</button>
-</form>
-</div>
+
+  .button{
+    background-color: white;
+    border-color: rgb(41, 118, 211);
+    border-style: solid;
+    border-width: 1px;
+    color:(41, 118, 211);
+    height: 26px;
+    width: 150px;
+    border-radius: 2px;
+    cursor: pointer;
+	transition: background-color 0.15s,
+      color 0.15s;
+  }
+
+  .button:hover {
+    background-color: rgb(41, 118, 211);
+    color: white;
+  }
+
+  .button:active {
+    opacity: 0.7;
+  }
+  
+
+header {
+height: 70px;
+width: 100vw;
+padding: 0 30px;
+background-color: var(--background-color1);
+position: fixed;
+z-index: 100;
+box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+
+.logo {
+font-size: 21px;
+font-weight: 600;
+color: black(0, 0, 0);
+}
+
+.main {
+height: calc(100vh - 70px);
+width: 100%;
+overflow-y: scroll;
+overflow-x: hidden;
+padding: 40px 30px 30px 30px;
+}
+
+
+
+	</style>
+	<script src="./aa.js"></script>
 </body>
 </html>

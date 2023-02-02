@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title> Employee profile</title>
+<title>Add Employee</title>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -19,7 +19,7 @@
 	<header>
 
 		<div class="logosec">
-			<div class="logo"> My Profile </div>
+			<div class="logo"> Project Openings Blog</div>
 			
 		</div>
 
@@ -33,39 +33,23 @@
                              </form>
 		 
 		</div>                   
+
 	</header>
 	<div class="main";>
-<div class="container" align="center" style="margin-top: 50px">
+<div class="container" style="margin-top: 50px">
+	<form th:action="@{/employee/saveOpenings}" th:object="${proopen}" method="POST" >
+	 <input type="text" th:field="*{empid}"
+				   placeholder="EmployeeId" class="form-control mb-4 col-4">
 	
+			<input type="text" th:field="*{description}"
+				   placeholder="Description" class="form-control mb-4 col-4">
 	
-		<table class="responsive-table striped highlight centered">
-			<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>DOB</th>
-					<th>address</th>
-					<th>contact</th>
-					
-					<th>
-				</tr>
-			</thead>
-
-			<tbody>
-		<div class="container">
-	<td>[[${#request.userPrincipal.principal.firstName}]]</td>
-	<td>[[${#request.userPrincipal.principal.lastName}]]</td>
-    <td>[[${#request.userPrincipal.principal.email}]]</td>
-    <td>[[${#request.userPrincipal.principal.Dob}]]</td>
-    <td>[[${#request.userPrincipal.principal.address}]]</td>
-    <td>[[${#request.userPrincipal.principal.contact}]]</td>
+			<input type="date" th:field="*{date}"
+				   placeholder="Date" class="form-control mb-4 col-4">             
 	
-	</div>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	  
+			<button type="submit" class="button"> Save Blog</button>
+	</form>
 	</div>
 	</div>
 

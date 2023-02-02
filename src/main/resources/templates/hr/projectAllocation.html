@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title> Employee profile</title>
+<title>Add Employee</title>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -19,7 +19,7 @@
 	<header>
 
 		<div class="logosec">
-			<div class="logo"> My Profile </div>
+			<div class="logo"> Project Allocation</div>
 			
 		</div>
 
@@ -35,37 +35,28 @@
 		</div>                   
 	</header>
 	<div class="main";>
-<div class="container" align="center" style="margin-top: 50px">
+<div class="container" style="margin-top: 50px">
+	<form th:action="@{/hr/saveallocation}" th:object="${alloc}" method="POST" >
+	 <input type="text" th:field="*{projectName}"
+				   placeholder="ProjectName" class="form-control mb-4 col-4">
 	
+			<input type="text" th:field="*{client}"
+				   placeholder="Client Name" class="form-control mb-4 col-4">
 	
-		<table class="responsive-table striped highlight centered">
-			<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>DOB</th>
-					<th>address</th>
-					<th>contact</th>
-					
-					<th>
-				</tr>
-			</thead>
+			<input type="date" th:field="*{start_date}"
+				   placeholder="start_date" class="form-control mb-4 col-4">              
+	 <input type="date" th:field="*{end_date}"
+				   placeholder="end_date" class="form-control mb-4 col-4">
+	
+			<input type="text" th:field="*{empid}"
+				   placeholder="EmployeeId" class="form-control mb-4 col-4">
+				   
+			<input type="text" th:field="*{Role}"
+				   placeholder="Role" class="form-control mb-4 col-4">
 
-			<tbody>
-		<div class="container">
-	<td>[[${#request.userPrincipal.principal.firstName}]]</td>
-	<td>[[${#request.userPrincipal.principal.lastName}]]</td>
-    <td>[[${#request.userPrincipal.principal.email}]]</td>
-    <td>[[${#request.userPrincipal.principal.Dob}]]</td>
-    <td>[[${#request.userPrincipal.principal.address}]]</td>
-    <td>[[${#request.userPrincipal.principal.contact}]]</td>
-	
-	</div>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	  
+			<button type="submit" class="button"> Save Allocation</button>
+	</form>
 	</div>
 	</div>
 

@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -40,14 +42,17 @@ public class User {
 	
     @Column(name="dob")
     private Date dob;
-
+   @ManyToOne
+   @JoinColumn(name="projectid")
+   Project_Allocation project;
     
 	public User() {
 		super();
 	}
 
+
 	public User(int id, String username, String password, String role, String firstName, String lastName, String email,
-			String address, String contact, Date dob) {
+			String address, String contact, Date dob, Project_Allocation project) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -59,7 +64,9 @@ public class User {
 		this.address = address;
 		this.contact = contact;
 		this.dob = dob;
+		this.project = project;
 	}
+
 
 	public int getId() {
 		return id;
@@ -139,6 +146,16 @@ public class User {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+
+
+	public Project_Allocation getProject() {
+		return project;
+	}
+
+
+	public void setProject(Project_Allocation project) {
+		this.project = project;
 	}
 
 

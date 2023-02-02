@@ -29,20 +29,30 @@ public class Project_Allocation {
 	@Column(name="end_date", nullable=false)
 	private Date end_date;
 
-	
+	@Column(name="empid",nullable=false)
+	private int empid;
+	@Column(name="Role",nullable=false)
+	private String Role;
 	public Project_Allocation() {
 		super();
 
 	}
 
-	public Project_Allocation(Long projectid, String projectName, String client, Date start_date, Date end_date) {
+
+
+	public Project_Allocation(Long projectid, String projectName, String client, Date start_date, Date end_date,
+			int empid,String Role) {
 		super();
 		this.projectid = projectid;
 		this.projectName = projectName;
 		Client = client;
 		this.start_date = start_date;
 		this.end_date = end_date;
+		this.empid = empid;
+		Role=Role;
 	}
+
+
 
 	public Long getProjectid() {
 		return projectid;
@@ -83,6 +93,31 @@ public class Project_Allocation {
 	public void setEnd_date(Date end_date) {
 		this.end_date = end_date;
 	}
+
+
+
+	public int getEmpid() {
+		return empid;
+	}
+
+
+
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+
+
+
+	public String getRole() {
+		return Role;
+	}
+
+
+
+	public void setRole(String role) {
+		Role = role;
+	}
+	
 	
 	
 }
