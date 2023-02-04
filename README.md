@@ -1,5 +1,5 @@
 # Employee_Management_System_Springboot(EMS)
-- Its a Web Application Project built with SpringBoot.
+- Its a Web Application Project built with SpringBoot,MySQL,Thymeleaf,Spring Security.
 
 ## EMS main features
 - Spring Security is used for authentication and authorization.
